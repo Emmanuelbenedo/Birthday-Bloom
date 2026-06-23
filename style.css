@@ -1,0 +1,333 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Nunito',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+  background:#0a0a14;
+  color:#fff;
+}
+
+/* ── ANIMATED BLOB BACKGROUND ── */
+#bg-canvas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+}
+
+.blob{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(90px);
+  opacity:0.7;
+  animation:blobMove 12s ease-in-out infinite alternate;
+}
+
+#blob1{
+  width:55vw;height:55vw;
+  background:var(--c1,#e87fbf);
+  top:-10%;left:-10%;
+  animation-duration:14s;
+}
+#blob2{
+  width:50vw;height:50vw;
+  background:var(--c2,#9e8fe0);
+  bottom:-10%;right:-10%;
+  animation-duration:18s;
+  animation-delay:-4s;
+}
+#blob3{
+  width:40vw;height:40vw;
+  background:var(--c3,#87b8f0);
+  top:40%;left:40%;
+  animation-duration:22s;
+  animation-delay:-8s;
+}
+
+@keyframes blobMove{
+  0%{transform:translate(0,0) scale(1);}
+  33%{transform:translate(8%,12%) scale(1.08);}
+  66%{transform:translate(-6%,8%) scale(0.95);}
+  100%{transform:translate(5%,-10%) scale(1.05);}
+}
+
+/* ── GLASSMORPHISM ── */
+.glass{
+  background:rgba(255,255,255,0.10);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 8px 40px rgba(0,0,0,0.25);
+}
+
+/* ── LAYOUT ── */
+#creator,#gift-screen{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  position:relative;
+  z-index:1;
+}
+
+#gift-screen,#celebration{display:none;}
+
+.creator-card{
+  max-width:460px;
+  width:100%;
+  border-radius:24px;
+  padding:32px 28px;
+}
+
+.creator-title{
+  font-family:'Dancing Script',cursive;
+  font-size:2.2rem;
+  color:#fff;
+  margin-bottom:6px;
+}
+
+.creator-sub{
+  color:rgba(255,255,255,0.65);
+  margin-bottom:22px;
+  font-size:0.95rem;
+}
+
+label{
+  display:block;
+  margin-top:16px;
+  margin-bottom:6px;
+  font-weight:700;
+  font-size:0.88rem;
+  color:rgba(255,255,255,0.8);
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+}
+
+input,textarea{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+  font-family:'Nunito',sans-serif;
+  font-size:1rem;
+  outline:none;
+  transition:border 0.2s;
+}
+
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,0.35);}
+input:focus,textarea:focus{border-color:rgba(255,255,255,0.5);}
+
+textarea{min-height:90px;resize:vertical;}
+
+/* ── COLOR PICKERS ── */
+.color-section{margin-top:20px;}
+
+.color-label{
+  font-size:0.88rem;
+  font-weight:700;
+  color:rgba(255,255,255,0.8);
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  margin-bottom:12px;
+}
+
+.color-pickers{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.color-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  flex:1;
+  min-width:80px;
+}
+
+.color-item span{
+  font-size:0.78rem;
+  color:rgba(255,255,255,0.55);
+}
+
+.color-wheel{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,0.3);
+  cursor:pointer;
+  padding:2px;
+  background:transparent;
+  appearance:none;
+  -webkit-appearance:none;
+  overflow:hidden;
+}
+
+.color-wheel::-webkit-color-swatch-wrapper{padding:0;}
+.color-wheel::-webkit-color-swatch{border-radius:50%;border:none;}
+.color-wheel::-moz-color-swatch{border-radius:50%;border:none;}
+
+/* ── BUTTONS ── */
+button{
+  border:none;
+  cursor:pointer;
+  margin-top:20px;
+  padding:14px 24px;
+  border-radius:40px;
+  background:rgba(255,255,255,0.9);
+  color:#1a1a2e;
+  font-weight:800;
+  font-size:1rem;
+  font-family:'Nunito',sans-serif;
+  width:100%;
+  transition:background 0.2s,transform 0.15s;
+}
+
+button:hover{background:#fff;transform:translateY(-1px);}
+button:active{transform:scale(0.98);}
+
+.btn-copy{
+  width:auto;
+  margin-top:0;
+  padding:10px 18px;
+  font-size:0.9rem;
+  flex-shrink:0;
+}
+
+/* ── LINK RESULT ── */
+#link-result{display:none;margin-top:18px;}
+
+.link-label{
+  font-size:0.85rem;
+  color:rgba(255,255,255,0.6);
+  margin-bottom:8px;
+}
+
+.link-box{display:flex;gap:8px;align-items:center;}
+.link-box input{font-size:0.8rem;}
+
+#copy-check{
+  margin-top:8px;
+  color:#7effc2;
+  font-size:0.9rem;
+  display:none;
+}
+
+/* ── GIFT SCREEN ── */
+.gift-box{
+  max-width:340px;
+  width:100%;
+  border-radius:24px;
+  padding:40px 28px;
+  text-align:center;
+}
+
+.gift-box h2{
+  font-size:1.4rem;
+  margin-bottom:8px;
+  color:#fff;
+}
+
+/* ── CELEBRATION ── */
+#celebration{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:1;
+}
+
+#confetti-canvas{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:10;
+}
+
+#hearts-container{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:5;
+}
+
+.heart-float{
+  position:absolute;
+  bottom:-60px;
+  font-size:24px;
+  animation:heartRise linear infinite;
+  opacity:0.85;
+  user-select:none;
+}
+
+@keyframes heartRise{
+  0%{transform:translateY(0) rotate(-10deg);opacity:0.85;}
+  50%{transform:translateY(-45vh) rotate(10deg);opacity:0.6;}
+  100%{transform:translateY(-110vh) rotate(-5deg);opacity:0;}
+}
+
+.glass-celebration{
+  background:rgba(255,255,255,0.10);
+  backdrop-filter:blur(28px);
+  -webkit-backdrop-filter:blur(28px);
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 8px 40px rgba(0,0,0,0.3);
+  border-radius:28px;
+  padding:40px 32px;
+  max-width:440px;
+  width:100%;
+  text-align:center;
+  position:relative;
+  z-index:6;
+}
+
+.title{
+  font-family:'Dancing Script',cursive;
+  font-size:3.2rem;
+  color:#fff;
+  line-height:1.1;
+  margin-bottom:4px;
+}
+
+#display-name{
+  font-size:1.5rem;
+  font-weight:900;
+  color:rgba(255,255,255,0.9);
+  margin:12px 0 20px;
+}
+
+.message-card{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:16px;
+  padding:20px;
+  margin-top:4px;
+}
+
+#display-message{
+  font-size:1.05rem;
+  color:rgba(255,255,255,0.9);
+  line-height:1.6;
+  min-height:1.5em;
+}
+
+#display-from{
+  margin-top:14px;
+  font-size:0.9rem;
+  color:rgba(255,255,255,0.5);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:480px){
+  .creator-card,.glass-celebration{padding:24px 18px;}
+  .title{font-size:2.4rem;}
+  .creator-title{font-size:1.8rem;}
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Bloom 🌸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="bg-canvas">
+  <div class="blob" id="blob1"></div>
+  <div class="blob" id="blob2"></div>
+  <div class="blob" id="blob3"></div>
+</div>
+
+<!-- GENERATEUR -->
+<div id="creator">
+  <div class="creator-card glass">
+
+    <h1 class="creator-title">Birthday Bloom</h1>
+    <p class="creator-sub">Crée une surprise d'anniversaire</p>
+
+    <label>Prénom du destinataire</label>
+    <input type="text" id="input-name" placeholder="Ex : Sophie">
+
+    <label>Message</label>
+    <textarea id="input-message" placeholder="Ton petit mot..."></textarea>
+
+    <label>De la part de</label>
+    <input type="text" id="input-from" placeholder="Ton prénom">
+
+    <div class="color-section">
+      <p class="color-label">Couleurs de l'ambiance</p>
+      <div class="color-pickers">
+        <div class="color-item">
+          <input type="color" id="color1" value="#e87fbf" class="color-wheel">
+          <span>Couleur 1</span>
+        </div>
+        <div class="color-item">
+          <input type="color" id="color2" value="#9e8fe0" class="color-wheel">
+          <span>Couleur 2</span>
+        </div>
+        <div class="color-item">
+          <input type="color" id="color3" value="#87b8f0" class="color-wheel">
+          <span>Couleur 3</span>
+        </div>
+      </div>
+    </div>
+
+    <button onclick="generateLink()">Générer le lien</button>
+
+    <div id="link-result">
+      <p class="link-label">Copie ce lien :</p>
+      <div class="link-box">
+        <input id="generated-link" readonly>
+        <button onclick="copyLink()" class="btn-copy">Copier</button>
+      </div>
+      <div id="copy-check">✅ Copié !</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SURPRISE -->
+<div id="gift-screen">
+  <div class="gift-box glass">
+    <h2>Une surprise t'attend...</h2>
+    <button id="open-gift">Ouvrir mon cadeau</button>
+  </div>
+</div>
+
+<!-- CELEBRATION -->
+<div id="celebration">
+  <canvas id="confetti-canvas"></canvas>
+  <div id="hearts-container"></div>
+
+  <div class="content glass-celebration">
+    <h1 class="title">Joyeux Anniversaire</h1>
+    <h2 id="display-name"></h2>
+    <div class="message-card">
+      <p id="display-message"></p>
+      <div id="display-from"></div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
