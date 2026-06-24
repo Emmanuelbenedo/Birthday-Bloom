@@ -8,7 +8,7 @@ body{
   color:#fff;
 }
 
-/* ── ANIMATED BLOB BACKGROUND ── */
+/* ── BLOBS ── */
 #bg-canvas{
   position:fixed;
   inset:0;
@@ -52,7 +52,7 @@ body{
   100%{transform:translate(5%,-10%) scale(1.05);}
 }
 
-/* ── GLASSMORPHISM ── */
+/* ── GLASS ── */
 .glass{
   background:rgba(255,255,255,0.10);
   backdrop-filter:blur(24px);
@@ -61,10 +61,11 @@ body{
   box-shadow:0 8px 40px rgba(0,0,0,0.25);
 }
 
-/* ── LAYOUT ── */
-#creator,#gift-screen{
+/* ── SECTIONS LAYOUT ── */
+#creator,
+#gift-screen,
+#celebration{
   min-height:100vh;
-  display:flex;
   justify-content:center;
   align-items:center;
   padding:20px;
@@ -72,8 +73,9 @@ body{
   z-index:1;
 }
 
-#gift-screen,#celebration{display:none;}
+/* display géré uniquement par JS / style inline HTML */
 
+/* ── CREATOR CARD ── */
 .creator-card{
   max-width:460px;
   width:100%;
@@ -120,7 +122,6 @@ input,textarea{
 
 input::placeholder,textarea::placeholder{color:rgba(255,255,255,0.35);}
 input:focus,textarea:focus{border-color:rgba(255,255,255,0.5);}
-
 textarea{min-height:90px;resize:vertical;}
 
 /* ── COLOR PICKERS ── */
@@ -223,27 +224,35 @@ button:active{transform:scale(0.98);}
   max-width:340px;
   width:100%;
   border-radius:24px;
-  padding:40px 28px;
+  padding:48px 28px;
   text-align:center;
 }
 
+.gift-emoji{
+  font-size:4rem;
+  margin-bottom:16px;
+  animation:giftPulse 2s ease-in-out infinite;
+}
+
+@keyframes giftPulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.12);}
+}
+
 .gift-box h2{
-  font-size:1.4rem;
+  font-size:1.5rem;
+  font-weight:900;
   margin-bottom:8px;
   color:#fff;
 }
 
-/* ── CELEBRATION ── */
-#celebration{
-  min-height:100vh;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:1;
+.gift-hint{
+  color:rgba(255,255,255,0.5);
+  font-size:0.9rem;
+  margin-bottom:4px;
 }
 
+/* ── CELEBRATION ── */
 #confetti-canvas{
   position:fixed;
   inset:0;
