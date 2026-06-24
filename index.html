@@ -17,11 +17,10 @@
   <div class="blob" id="blob3"></div>
 </div>
 
-<!-- GENERATEUR -->
+<!-- GENERATEUR (visible par défaut) -->
 <div id="creator">
   <div class="creator-card glass">
-
-    <h1 class="creator-title">Birthday Bloom</h1>
+    <h1 class="creator-title">Birthday Bloom 🌸</h1>
     <p class="creator-sub">Crée une surprise d'anniversaire</p>
 
     <label>Prénom du destinataire</label>
@@ -51,7 +50,7 @@
       </div>
     </div>
 
-    <button onclick="generateLink()">Générer le lien</button>
+    <button onclick="generateLink()">🎁 Générer le lien</button>
 
     <div id="link-result">
       <p class="link-label">Copie ce lien :</p>
@@ -61,24 +60,25 @@
       </div>
       <div id="copy-check">✅ Copié !</div>
     </div>
-
   </div>
 </div>
 
-<!-- SURPRISE -->
-<div id="gift-screen">
+<!-- SURPRISE (caché par défaut via style inline) -->
+<div id="gift-screen" style="display:none;">
   <div class="gift-box glass">
+    <div class="gift-emoji">🎁</div>
     <h2>Une surprise t'attend...</h2>
-    <button id="open-gift">Ouvrir mon cadeau</button>
+    <p class="gift-hint">Clique pour découvrir</p>
+    <button id="open-gift">Ouvrir mon cadeau ✨</button>
   </div>
 </div>
 
-<!-- CELEBRATION -->
-<div id="celebration">
+<!-- CELEBRATION (caché par défaut via style inline) -->
+<div id="celebration" style="display:none;">
   <canvas id="confetti-canvas"></canvas>
   <div id="hearts-container"></div>
 
-  <div class="content glass-celebration">
+  <div class="glass-celebration">
     <h1 class="title">Joyeux Anniversaire</h1>
     <h2 id="display-name"></h2>
     <div class="message-card">
