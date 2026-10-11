@@ -57,7 +57,7 @@ function generateLink() {
 
   const payload = JSON.stringify({
     n: name,
-    m: message || "🎉 Passe une merveilleuse journée !",
+    m: message || " Passe une merveilleuse journée !",
     f: from    || "Quelqu'un qui pense à toi",
     c1, c2, c3
   });
@@ -84,7 +84,7 @@ document.getElementById("open-gift")?.addEventListener("click", () => {
 
   // Remplir le contenu AVANT d'afficher
   document.getElementById("display-name").textContent = data.n || "";
-  document.getElementById("display-from").textContent = `De la part de ${data.f} 💕`;
+  document.getElementById("display-from").textContent = `De la part de ${data.f} `;
 
   // Masquer gift-screen, afficher celebration
   document.getElementById("gift-screen").style.display = "none";
@@ -118,7 +118,7 @@ function spawnHearts() {
   for (let i = 0; i < 22; i++) {
     const h = document.createElement("div");
     h.className = "heart-float";
-    h.textContent = "❤️";
+    h.textContent = "";
     h.style.left = Math.random() * 100 + "vw";
     h.style.fontSize = sizes[Math.floor(Math.random() * sizes.length)];
     const dur = 7 + Math.random() * 9;
